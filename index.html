@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brotherhood Post Finder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one column, big tap targets, one group per topic. Same range-country palette as the proposal. */
+  :root {
+    --bg: #f3f1ec;
+    --surface: #ffffff;
+    --fg: #1f2328;
+    --muted: #5c6369;
+    --rule: #d6d2c8;
+    --accent: #8a4b1f;
+    --accent-ink: #ffffff;
+    --accent-hover: #6e3a16;
+    --band: #22302e;
+    --band-fg: #f3f1ec;
+    --step: #2f5d4a;
+    --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    --font-body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15191b; --surface: #1d2224; --fg: #e8e5de; --muted: #a09c93; --rule: #343b3e;
+      --accent: #d98a4f; --accent-ink: #15191b; --accent-hover: #e9a068;
+      --band: #0f1514; --band-fg: #e8e5de; --step: #7fc3a4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15191b; --surface: #1d2224; --fg: #e8e5de; --muted: #a09c93; --rule: #343b3e;
+    --accent: #d98a4f; --accent-ink: #15191b; --accent-hover: #e9a068;
+    --band: #0f1514; --band-fg: #e8e5de; --step: #7fc3a4;
+    color-scheme: dark;
+  }
+
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 18px; line-height: 1.5; }
+  .wrap {
+    max-width: 760px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 28px;
+  }
+  header { background: var(--band); color: var(--band-fg); }
+  header .wrap { padding-block: 36px 32px; }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(38px, 8vw, 56px); line-height: .95; text-transform: uppercase; margin: 0 0 12px; text-wrap: balance; }
+  .lede { font-size: 20px; margin: 0; max-width: 560px; }
+
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1; text-transform: uppercase; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+
+  .steps { background: var(--surface); border: 1px solid var(--rule); padding: 20px 22px; margin-bottom: 28px; }
+  .steps h2 { margin-bottom: 14px; }
+  .steps ol { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 12px; }
+  .steps li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+  .steps .n { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; color: var(--step); padding-top: 2px; }
+  .steps strong { font-weight: 600; }
+  .steps .tip { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 16px; color: var(--muted); }
+
+  section.group { padding-block: 22px; border-top: 1px solid var(--rule); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: var(--accent-ink);
+    font-weight: 600; font-size: 19px; text-decoration: none;
+    padding: 14px 20px; border-radius: 6px; min-height: 48px; line-height: 1.1;
+    border: 2px solid transparent;
+  }
+  .btn:hover { background: var(--accent-hover); }
+  .btn:focus-visible { outline: 3px solid var(--step); outline-offset: 2px; }
+  .btn small { display: block; font-weight: 400; font-size: 13px; opacity: .85; margin-top: 3px; }
+
+  footer { color: var(--muted); font-size: 15px; border-top: 1px solid var(--rule); }
+  footer .wrap { padding-block: 22px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header>
+  <div class="wrap">
+    <h1>Brotherhood<br>Post Finder</h1>
+    <p class="lede">One click takes you to the Brotherhood posts on a topic. No typing, no searching.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="steps">
+    <h2>How to use it</h2>
+    <ol>
+      <li><span class="n">1</span><div><strong>Be signed in to Skool.</strong> Open skool.com in your browser and sign in the way you normally do. You only need to do this once.</div></li>
+      <li><span class="n">2</span><div><strong>Come back here and click any button below.</strong> It opens the Brotherhood in a new tab, already showing the posts on that topic.</div></li>
+      <li><span class="n">3</span><div><strong>Scroll down past the long pinned posts.</strong> The member questions and stories are underneath. Click any post to read it or reply.</div></li>
+    </ol>
+    <p class="tip">If a button shows a page with a <strong>Log In</strong> button instead of posts, you are not signed in yet. Sign in on that page, then click the button again.</p>
+  </div>
+
+  <section class="group">
+    <h2>Land and Homesteading</h2>
+    <p class="sub">Buying land, water, wells, animals, and getting through winter.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=water%20rights" target="_blank" rel="noopener">Water rights</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=septic" target="_blank" rel="noopener">Septic</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=livestock" target="_blank" rel="noopener">Livestock</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=cattle" target="_blank" rel="noopener">Cattle</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=calving" target="_blank" rel="noopener">Calving</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=chickens" target="_blank" rel="noopener">Chickens</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=acreage" target="_blank" rel="noopener">Acreage</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=hunting" target="_blank" rel="noopener">Hunting</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Preparedness</h2>
+    <p class="sub">Power, supplies, and being ready when things go wrong.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=prepping" target="_blank" rel="noopener">Prepping</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=solar" target="_blank" rel="noopener">Solar power</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Body and Discipline</h2>
+    <p class="sub">Training, eating, and quitting the things that hold you back.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=fasting" target="_blank" rel="noopener">Fasting</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=cardio" target="_blank" rel="noopener">Cardio</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=deadlift" target="_blank" rel="noopener">Lifting</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=sober" target="_blank" rel="noopener">Getting sober</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=porn" target="_blank" rel="noopener">Quitting porn</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Marriage and Family</h2>
+    <p class="sub">Wives, kids, and leading at home.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=wife" target="_blank" rel="noopener">Wife</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=divorce" target="_blank" rel="noopener">Divorce</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Faith</h2>
+    <p class="sub">Prayer requests, scripture, and walking it out.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=prayer" target="_blank" rel="noopener">Prayer</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=scripture" target="_blank" rel="noopener">Scripture</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Wins and Accountability</h2>
+    <p class="sub">Men reporting progress and holding each other to it.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=accountability" target="_blank" rel="noopener">Accountability</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>New Members</h2>
+    <p class="sub">Men introducing themselves. A good place to say hello.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=introduction" target="_blank" rel="noopener">Introductions</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=joined" target="_blank" rel="noopener">Just joined</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>The World Right Now</h2>
+    <p class="sub">News, government, and what is going on.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=Fauci" target="_blank" rel="noopener">Fauci</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=mRNA" target="_blank" rel="noopener">mRNA</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>The Ranch and Veterans</h2>
+    <p class="sub">Fat Cow Ranch and the men who served.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=Fat%20Cow" target="_blank" rel="noopener">Fat Cow Ranch</a>
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=veterans" target="_blank" rel="noopener">Veterans</a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Money and Business</h2>
+    <p class="sub">Only a few posts exist on this yet. Start one if you have a question.</p>
+    <div class="buttons">
+      <a class="btn" href="https://www.skool.com/thebrotherhood/-/search?q=1099" target="_blank" rel="noopener">Taxes and 1099</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Each button runs a search inside The Brotherhood™ on Skool. Skool's search matches parts of words, so a few results on any button may be off topic. Made by a member for members.</div>
+</footer>
+
+</html>
